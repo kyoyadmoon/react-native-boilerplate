@@ -6,6 +6,7 @@ import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { Images } from 'App/Theme'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 /**
  * This is an example of a container component.
@@ -30,10 +31,11 @@ class ExampleScreen extends React.Component {
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View>
+          <View style={Style.content}>
             <View style={Style.logoContainer}>
               <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
             </View>
+            <Icon name="ios-rocket" size={30} color="steelblue" />
             <Text style={Style.text}>To get started, edit App.js</Text>
             <Text style={Style.instructions}>{instructions}</Text>
             {this.props.userErrorMessage ? (
@@ -55,7 +57,7 @@ class ExampleScreen extends React.Component {
       </View>
     )
   }
-  
+
   _fetchUser() {
     this.props.fetchUser()
   }

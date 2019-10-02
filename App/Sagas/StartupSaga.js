@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects'
 import ExampleActions from 'App/Stores/Example/Actions'
-import NavigationService from 'App/Services/NavigationService'
+import { Actions } from 'react-native-router-flux';
 
 /**
  * The startup saga is the place to define behavior to execute when the application starts.
@@ -14,5 +14,5 @@ export function* startup() {
   // ...
 
   // When those operations are finished we redirect to the main screen
-  NavigationService.navigateAndReset('MainScreen')
+  Actions.main('reset');
 }

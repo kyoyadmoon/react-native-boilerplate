@@ -1,4 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux'
+import ReduxThunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 
@@ -25,7 +26,7 @@ const persistConfig = {
 }
 
 export default (rootReducer, rootSaga) => {
-  const middleware = []
+  const middleware = [ReduxThunk]
   const enhancers = []
 
   // Connect the sagas to the redux store
