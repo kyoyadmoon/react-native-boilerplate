@@ -7,6 +7,7 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { Images } from 'App/Theme'
 import Icon from 'react-native-vector-icons/Ionicons';
+import styled from 'styled-components';
 
 /**
  * This is an example of a container component.
@@ -26,35 +27,36 @@ class ExampleScreen extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
-      <View style={Style.container}>
+      <StyledView>
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View style={Style.content}>
-            <View style={Style.logoContainer}>
-              <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
-            </View>
-            <Icon name="ios-rocket" size={30} color="steelblue" />
-            <Text style={Style.text}>To get started, edit App.js</Text>
-            <Text style={Style.instructions}>{instructions}</Text>
-            {this.props.userErrorMessage ? (
-              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
-            ) : (
-              <View>
-                <Text style={Style.result}>
-                  {"I'm a fake user, my name is "}
-                  {this.props.user.name}
-                </Text>
-                <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-                </Text>
+            <View style={Style.content}>
+              <View style={Style.logoContainer}>
+                <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
               </View>
-            )}
-            <Button onPress={() => this._fetchUser()} title="Refresh" />
-          </View>
-        )}
-      </View>
+              <Icon name="ios-rocket" size={30} color="steelblue" />
+              <Text style={Style.text}>To get started, edit App.js</Text>
+              <Text style={Style.instructions}>{instructions}</Text>
+              {this.props.userErrorMessage ? (
+                <Text style={Style.error}>{this.props.userErrorMessage}</Text>
+              ) : (
+                  <View>
+                    <Text style={Style.result}>
+                      {"I'm a fake user, my name is "}
+                      {this.props.user.name}
+                    </Text>
+                    <Text style={Style.result}>
+                      {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
+                    </Text>
+                  </View>
+                )}
+              <Button onPress={() => this._fetchUser()} title="Refresh" />
+            </View>
+          )}
+      </StyledView>
     )
   }
 
@@ -86,3 +88,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ExampleScreen)
+
+const StyledView = styled.View`
+  margin-top: 30;
+  flex: 1;
+  justify-content: center;
+`;

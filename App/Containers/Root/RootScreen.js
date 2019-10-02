@@ -5,6 +5,7 @@ import styles from './RootScreenStyle'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 import { PropTypes } from 'prop-types'
+import { ThemeProvider } from 'styled-components';
 
 class RootScreen extends Component {
   componentDidMount() {

@@ -4,6 +4,8 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
 import { Config } from 'App/Config';
+import { ThemeProvider } from 'styled-components';
+import theme from 'App/Theme/theme.js';
 
 /** disable warning yellow box */
 console.disableYellowBox = Config.disableYellowBox;
@@ -25,7 +27,9 @@ export default class App extends Component {
          * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
          */}
         <PersistGate loading={null} persistor={persistor}>
-          <RootScreen />
+          <ThemeProvider theme={theme}>
+            <RootScreen />
+          </ThemeProvider>
         </PersistGate>
       </Provider>
     )
