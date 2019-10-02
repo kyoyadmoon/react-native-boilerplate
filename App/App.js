@@ -3,6 +3,10 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
+import { Config } from 'App/Config';
+
+/** disable warning yellow box */
+console.disableYellowBox = Config.disableYellowBox;
 
 const { store, persistor } = createStore()
 
