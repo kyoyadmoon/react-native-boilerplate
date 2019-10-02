@@ -46,10 +46,14 @@ The boilerplate contains:
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
 - [Redux Sagas](https://redux-saga.js.org) (v1.0.2) to separate side-effects and logic from state and UI logic
-- [React Navigation](https://reactnavigation.org/) (v3.11.2) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk) Thunk middleware for Redux to perform asynchronous dispatch in action creator
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
+- [react-native-router-flux](https://github.com/aksonov/react-native-router-flux) declarative React Native router based on [React Navigation](https://reactnavigation.org/)
 - [axios](https://github.com/axios/axios) to make API calls (v0.19.0)
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
+- [remote-redux-devtools] integrate [react-native-debugger](https://github.com/jhen0409/react-native-debugger), you can download [debugger tool here](https://github.com/jhen0409/react-native-debugger#installation)
+- [styled-components](https://www.styled-components.com) to separate style and other UI logic, it support theme and use [css-to-react-native](https://github.com/styled-components/css-to-react-native) converts CSS text to a React Native stylesheet object.
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) customizable Icons for React Native
 
 The boilerplate includes an example (displaying fake user data) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
 
@@ -59,7 +63,7 @@ The boilerplate includes an example (displaying fake user data) from UI componen
 - [`App/Config`](App/Config): configuration of the application
 - [`App/Containers`](App/Containers): container components, i.e. the application's screens
 - [`App/Assets`](App/Assets): assets (image, audio files, ...) used by the application
-- [`App/Navigators`](App/Navigators): react navigation navigators 
+- [`App/Routers`](App/Routers): react-native-router-flux Router
 - [`App/Sagas`](App/Sagas): redux sagas
 - [`App/Services`](App/Services): application services, e.g. API clients
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
