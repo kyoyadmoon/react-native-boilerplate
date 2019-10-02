@@ -7,7 +7,7 @@ import SplashScreen from 'App/Containers/SplashScreen/SplashScreen';
 
 const scenes = Actions.create(
   <Stack key="root" panHandlers={null} >
-    <Scene key="splash" component={SplashScreen} hideNavBar />
+    <Scene key="splash" component={SplashScreen} hideNavBar type="replace"/>
     <Scene key="main" component={Example} hideNavBar />
   </Stack>
 );
