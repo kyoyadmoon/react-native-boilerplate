@@ -27,7 +27,7 @@ class ExampleScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const isHermes = () => global.HermesInternal != null;
     return (
       <StyledView>
         {this.props.userIsLoading ? (
@@ -37,7 +37,12 @@ class ExampleScreen extends React.Component {
               <View style={Style.logoContainer}>
                 <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
               </View>
-              <Icon name="ios-rocket" size={30} color="steelblue" />
+              <Row>
+                <Icon name="ios-rocket" size={25} color="steelblue" />
+                <StyledText>
+                  {isHermes && 'Using Hermes Engine'}
+                </StyledText>
+              </Row>
               <Text style={Style.text}>To get started, edit App.js</Text>
               <Text style={Style.instructions}>{instructions}</Text>
               {this.props.userErrorMessage ? (
@@ -93,4 +98,15 @@ const StyledView = styled.View`
   margin-top: 30;
   flex: 1;
   justify-content: center;
+`;
+
+const Row = styled.View`
+  flex-direction: row;
+  margin-bottom: 10;
+`;
+
+const StyledText = styled.Text`
+  margin-left: 10;
+  justify-content: center;
+  font-size: 20;
 `;
